@@ -1,11 +1,10 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
 @app.route("/<path:path>")
 def others(path):
-    arg1 = request.args.get('arg1')
-    res = jsonify({'err': f'Page {path} not found', 'arg1': arg1})
+    res = jsonify({'err': f'Page {path} not found'})
     res.status_code = 404
     return res
 
@@ -17,6 +16,4 @@ def home():
 def nopage():
     return "Hello world!"
 
-
-
-app.run()
+app.run(host="127.0.0.1", port=3000)
