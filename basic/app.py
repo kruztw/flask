@@ -18,5 +18,9 @@ def nopage():
     return "Hello world!"
 
 
+@app.route("/", methods=["post"])
+def POST():
+    # request.form.get('xxx')
+    return "POST"
 
 app.run()
